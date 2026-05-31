@@ -1,0 +1,14 @@
+# Sensitive plaintext plan — NEVER commit. Only the encrypted plan.enc.json is deployed.
+data.js
+
+# Local notes / backups
+*.original.md
+*.bak
+*~
+
+# Node
+node_modules/
+npm-debug.log*
+
+# OS
+.DS_Store

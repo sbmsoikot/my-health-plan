@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1D9E75">
+<title>My Health Plan</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span class="brand-name">My Health Plan</span>
+      </div>
+      <div class="topbar-actions">
+        <button id="themeBtn" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+        <button id="menuBtn" class="icon-btn" title="Data &amp; settings" aria-label="Menu">⋯</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Views -->
+  <main class="content">
+    <section id="view-dashboard" class="view active"></section>
+    <section id="view-meals" class="view"></section>
+    <section id="view-activity" class="view"></section>
+    <section id="view-tracker" class="view"></section>
+    <section id="view-markers" class="view"></section>
+  </main>
+
+  <!-- Bottom navigation -->
+  <nav class="bottomnav">
+    <button class="navbtn active" data-view="dashboard"><span class="nav-ico">▦</span><span>Home</span></button>
+    <button class="navbtn" data-view="meals"><span class="nav-ico">🍽</span><span>Meals</span></button>
+    <button class="navbtn" data-view="activity"><span class="nav-ico">🏃</span><span>Activity</span></button>
+    <button class="navbtn" data-view="tracker"><span class="nav-ico">✓</span><span>Tracker</span></button>
+    <button class="navbtn" data-view="markers"><span class="nav-ico">🩸</span><span>Markers</span></button>
+  </nav>
+
+  <!-- Add food floating button -->
+  <button id="fabAdd" class="fab" title="Add food">＋</button>
+</div>
+
+<!-- Modal host -->
+<div id="modalHost" class="modal-host" hidden>
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal" id="modalBox" role="dialog" aria-modal="true"></div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast" hidden></div>
+
+<!-- Lock screen (covers app until the plan is decrypted) -->
+<div id="lockScreen" class="lock-screen" hidden>
+  <form id="lockForm" class="lock-box" autocomplete="off">
+    <div class="lock-icon">🔒</div>
+    <h1>My Health Plan</h1>
+    <p class="lock-sub">Enter your passphrase to unlock your plan on this device.</p>
+    <input id="lockPass" type="password" placeholder="Passphrase" autocomplete="current-password" autocapitalize="off" spellcheck="false">
+    <label class="lock-remember"><input type="checkbox" id="lockRemember"> Remember on this device</label>
+    <button type="submit" id="lockBtn" class="btn primary block">Unlock</button>
+    <div id="lockErr" class="lock-err" hidden></div>
+    <p class="lock-note">Your passphrase and plan never leave this device — everything is decrypted right here in your browser.</p>
+  </form>
+</div>
+
+<script src="foods.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
