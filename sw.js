@@ -1,4 +1,4 @@
-const CACHE = 'health-plan-v4';
+const CACHE = 'health-plan-v5';
 const ASSETS = ['./','./index.html','./styles.css','./plan.enc.json','./foods.js','./app.js','./manifest.webmanifest','./icon.svg'];
 
 self.addEventListener('install', e => {
